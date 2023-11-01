@@ -3,9 +3,6 @@ resources:
 - service.yaml
 - namespace.yaml
 
-commonLabels:
-  app: wordpress
-
 namespace: wordpress-demo
 
 images:
