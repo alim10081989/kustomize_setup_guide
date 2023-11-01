@@ -1,0 +1,6 @@
+- op: add
+  path: /metadata/annotations/app.io.owner
+  value: "Alim"
+- op: add
+  path: /spec/template/spec/serviceAccountName
+  value: "demo-sa"

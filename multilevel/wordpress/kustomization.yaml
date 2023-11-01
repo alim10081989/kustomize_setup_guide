@@ -1,0 +1,14 @@
+resources:
+- deployment.yaml
+- service.yaml
+- namespace.yaml
+
+commonLabels:
+  app: wordpress
+
+namespace: wordpress-demo
+
+images:
+- name: wordpress
+  newName: wordpress
+  newTag: 4.8-apache

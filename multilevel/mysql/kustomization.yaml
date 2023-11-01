@@ -1,0 +1,22 @@
+resources:
+- deployment.yaml
+- service.yaml
+- namespace.yaml
+#- secret.yaml
+
+commonLabels:
+  app: mysql
+
+namespace: mysql-demo
+
+images:
+- name: mysql
+  newName: mysql
+  newTag: "5.6"
+
+secretGenerator:
+- name: database-creds
+  options:
+    disableNameSuffixHash: true
+  literals:
+  - password=admin

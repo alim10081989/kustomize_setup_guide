@@ -1,0 +1,24 @@
+commonLabels:
+  tool: kustomize
+
+resources:
+- ./wordpress
+- ./mysql
+
+nameSuffix: -demo
+namePrefix: poc-
+
+generatorOptions:
+  labels:
+    base: multilevel
+  disableNameSuffixHash: true
+
+secretGenerator:
+- name: common-creds
+  literals:
+  - username=admin
+
+configMapGenerator:
+- name: endpoint-configmap
+  literals:
+  - endpoint="api.example.com/users"

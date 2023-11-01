@@ -1,0 +1,40 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../../base
+- namespace.yaml
+
+namespace: dev-ns
+
+patches:
+- path: deployment-dev.yaml
+- path: service-dev.yaml
+- path: sa-annot-patch.yaml
+  target:
+    kind: Deployment
+    name: web-deployment
+
+generatorOptions:
+  labels:
+    demo: generator
+    tool: kustomize
+  disableNameSuffixHash: true
+
+namePrefix: dev-
+nameSuffix: -poc
+
+configMapGenerator:
+- name: index-html-configmap
+  options:
+    disableNameSuffixHash: true
+  behavior: create
+  files:
+  - index-dev.html
+
+secretGenerator:
+- name: common-creds
+  options:
+    disableNameSuffixHash: true
+  literals:
+  - username=admin
