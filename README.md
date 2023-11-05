@@ -8,7 +8,8 @@ OR
 
 
 <details>
-  <summary>Output</summary>
+  <summary>YAML Output</summary>
+
 ```yaml
 apiVersion: v1
 kind: Namespace
@@ -164,7 +165,6 @@ spec:
       - emptyDir: {}
         name: wordpress-persistent-storage
 ```
-
 </details>
 
 # Apply
