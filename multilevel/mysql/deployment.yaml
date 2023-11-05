@@ -2,18 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
-  labels:
-    app: mysql
 spec:
-  selector:
-    matchLabels:
-      app: mysql
   strategy:
     type: Recreate
   template:
-    metadata:
-      labels:
-        app: mysql
     spec:
       containers:
       - image: mysql:5.6
